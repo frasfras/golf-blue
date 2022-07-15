@@ -2,7 +2,7 @@
 <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-  <HelloWorld msg="Water plan"/>
+  <HelloWorld msg="Sustainable Water plan"/>
   </v-col cols="12">
   </v-row class="text-center">
   </v-container>
