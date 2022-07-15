@@ -269,6 +269,7 @@ export default {
       sat: "",
       picker:"",
       email: "",
+      done: "success",
       ex1: { label: "Hole1", val: 25, color: "#234560" },
       ex2: { label: "Hole2", val: 75, color: "#234560" },
       ex3: { label: "Hole3", val: 50, color: "#234560" },
@@ -292,6 +293,7 @@ export default {
   methods: {
     submit() {
       console.log("ok");
+      alert(this.done);
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append("Accept", "application/json");
