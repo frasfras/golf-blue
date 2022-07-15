@@ -14,7 +14,7 @@
           <input
             type="text"
             class="form-control"
-            placeholder="Description"
+            placeholder="south course watering"
             v-model="overview"
           />
         </div>
@@ -25,7 +25,7 @@
           v-model="companyName"
           placeholder="Enter your name"
         ></b-form-input>
-        <label for="companyName">Set Fairway api</label>
+        <label for="companyName">Set Fairway </label>
 
         <div>
           <v-form>
@@ -158,6 +158,38 @@
         <v-slider
           v-model="ex9.val"
           :label="ex9.label"
+          min="8"
+          max="15"
+          :color="ex9.color"
+          thumb-label="always"
+        ></v-slider>
+        <v-slider
+          v-model="ex10.val"
+          :label="ex10.label"
+          min="8"
+          max="15"
+          :color="ex9.color"
+          thumb-label="always"
+        ></v-slider>
+        <v-slider
+          v-model="ex11.val"
+          :label="ex11.label"
+          min="8"
+          max="15"
+          :color="ex9.color"
+          thumb-label="always"
+        ></v-slider>
+        <v-slider
+          v-model="ex12.val"
+          :label="ex12.label"
+          min="8"
+          max="15"
+          :color="ex9.color"
+          thumb-label="always"
+        ></v-slider>
+        <v-slider
+          v-model="ex13.val"
+          :label="ex13.label"
           min="8"
           max="15"
           :color="ex9.color"
