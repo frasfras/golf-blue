@@ -293,6 +293,7 @@ export default {
   methods: {
     submit() {
       console.log("ok");
+      this.done = "Ok";
       alert(this.done);
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
