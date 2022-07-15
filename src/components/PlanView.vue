@@ -3,12 +3,12 @@
     <formWizard @onComplete="submit">
       <tab-content title="Course waterplan" :selected="true">
         <div class="form-group">
-          <label for="overview">Requestor</label>
+          <label for="overview">Requested by</label>
           <input
             type="text"
             class="form-control"
             placeholder="Enter your name"
-            v-model="overview"
+            v-model="requestor"
           />
           <label for="overview">Description</label>
           <input
@@ -25,7 +25,7 @@
           v-model="companyName"
           placeholder="Enter your name"
         ></b-form-input>
-        <label for="companyName">Set Fairway </label>
+        <label for="companyName">Set Fairway   </label>
 
         <div>
           <v-form>
@@ -121,6 +121,7 @@
         </div>
       </tab-content>
       <tab-content title="Set the Greens">
+      <label for="companyName">Set Greens  </label>
         <v-slider
           v-model="ex5.val"
           :color="ex5.color"
@@ -231,7 +232,7 @@
       </tab-content>
       <tab-content title="Set Days">
         <div class="form-group">
-          <label for="days">Days</label>
+          <label for="days">Days schedule</label>
         </div>
        
        
@@ -266,11 +267,18 @@
         <div class="form-group">
           <label for="referral"></label>
         </div>
-          <label for="overview">Instructions</label>
+         <label for="requestor">Requestor</label>
           <input
             type="text"
             class="form-control"
             placeholder=""
+            v-model="requestor"
+          />
+          <label for="overview">Send Instructions</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter the email"
             v-model="email"
           />
         
@@ -301,6 +309,8 @@ export default {
       sat: "",
       picker:"",
       email: "",
+      requestor: "",
+      description: "",
       done: "success",
       ex1: { label: "Hole1", val: 25, color: "#234560" },
       ex2: { label: "Hole2", val: 75, color: "#234560" },
@@ -325,7 +335,7 @@ export default {
   methods: {
     submit() {
       console.log("ok");
-      this.done = "Ok";
+      this.done = "course updated";
       alert(this.done);
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
