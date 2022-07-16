@@ -362,7 +362,12 @@ export default {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
+        
+        this.sendMessage(); 
+        //update other fairways
+        //updateWaterplan(id);
     },
+    
     sendMessage() {
       console.log("ok");
       
@@ -388,8 +393,44 @@ export default {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
+        
+     
     },
+    
+    updateWaterplan(id){
+
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Accept", "application/json");
+
+      var gr = this.ex5.val;
+      var fw = this.ex7.val;
+      var id = id;
+
+      //hole 
+      var graphql = JSON.stringify({
+        query: "mutation MyQuery1 ($id: String, $greens: Float,$fairway: Float) {\n  update_waterplan(id: $id, greens: $greens,  fairway: $fairway) {\n    id\n    greens\n    hole\n    fairway\n  }\n}\n\n\n",
+  variables: {"greens":gr,"fairway":fw, "id": id},
+      });
+      var requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: graphql,
+        redirect: "follow",
+      };
+
+      fetch(
+        "https://api.baseql.com/airtable/graphql/appneKtre6Ux4ESiq",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.log("error", error));
+    },
+    
   },
+  
+  
 };
 </script>
 <style>
