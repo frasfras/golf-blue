@@ -342,10 +342,11 @@ export default {
       myHeaders.append("Accept", "application/json");
 
       var gr = this.ex5.val;
+      var fw = this.ex6.val;
+      
       var graphql = JSON.stringify({
-        query:
-          'mutation MyQuery1 ($greens: Float) {\n  update_waterplan(id: "rec0fL8gLI3iETJFn", greens: $greens, hole: "2") {\n    id\n    greens\n    hole\n  }\n}',
-        variables: { greens: gr },
+          query: "mutation MyQuery1 ($greens: Float,$fairway: Float) {\n  update_waterplan(id: \"rec0fL8gLI3iETJFn\", greens: $greens,  fairway: $fairway) {\n    id\n    greens\n    hole\n    fairway\n  }\n}\n\n\n",
+  variables: {"greens":gr,"fairway":fw},
       });
       var requestOptions = {
         method: "POST",
@@ -361,6 +362,32 @@ export default {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
+    },
+    sendMessage() {
+      console.log("ok");
+      
+      var msg = this.description;
+      var from = this.requestor;
+      var em = this.email;
+
+     var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var graphql = JSON.stringify({
+        query: "mutation sendEmail ($email: String,$requestor: String,$notes: String) {\n  insert_emails(email: $email, requestor: $requestor, notes: $notes) {\n    email\n    requestor\n    notes\n  }\n}",
+        variables: {"email":em,"requestor": from,"notes": msg}
+      })
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: graphql,
+        redirect: 'follow'
+      };
+
+      fetch("https://api.baseql.com/airtable/graphql/appneKtre6Ux4ESiq", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     },
   },
 };
