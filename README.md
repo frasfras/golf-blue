@@ -17,7 +17,7 @@ npm run serve
 app running at 
 Local:   http://localhost:8081/
 
-<h2> Stepzen CLI - Create GraphQL Api </h2>
+<h3> Stepzen CLI - Create GraphQL Api </h3>
 
 cd documents &&  mkdir stepdoc
 
@@ -34,7 +34,7 @@ header:'Content-Type': 'application/json'
 Your API url is  https://shima.stepzen.net/api/airtable/__graphql
 
 
-<h2> Vue CLI - Creating the Project </h2>
+<h3> Vue CLI - Creating the Project </h3>
 
   setting up a vue App
 
