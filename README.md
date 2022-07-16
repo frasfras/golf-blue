@@ -33,9 +33,6 @@ header:'Content-Type': 'application/json'
 
 Your API url is  https://shima.stepzen.net/api/airtable/__graphql
 
-Type  stepzen start
-![Screen Shot 2022-07-16 at 9 14 40 PM](https://user-images.githubusercontent.com/65541080/179356030-f666f9a9-323b-4a4a-b783-e224b2c40ef2.png)
-
 
 <h2> Vue CLI - Creating the Project </h2>
 
