@@ -368,35 +368,6 @@ export default {
         //updateWaterplan(id);
     },
     
-    sendMessage() {
-      console.log("ok");
-      
-      var msg = this.description;
-      var from = this.requestor;
-      var em = this.email;
-
-     var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-
-      var graphql = JSON.stringify({
-        query: "mutation sendEmail ($email: String,$requestor: String,$notes: String) {\n  insert_emails(email: $email, requestor: $requestor, notes: $notes) {\n    email\n    requestor\n    notes\n  }\n}",
-        variables: {"email":em,"requestor": from,"notes": msg}
-      })
-      var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: graphql,
-        redirect: 'follow'
-      };
-
-      fetch("https://api.baseql.com/airtable/graphql/appneKtre6Ux4ESiq", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-        
-     
-    },
-    
     updateWaterplan(id){
 
       var myHeaders = new Headers();
@@ -427,7 +398,34 @@ export default {
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
     },
-    
+   
+     sendMessage() {
+      console.log("ok");
+      
+      var msg = this.description;
+      var from = this.requestor;
+      var em = this.email;
+
+     var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var graphql = JSON.stringify({
+        query: "mutation sendEmail ($email: String,$requestor: String,$notes: String) {\n  insert_emails(email: $email, requestor: $requestor, notes: $notes) {\n    email\n    requestor\n    notes\n  }\n}",
+        variables: {"email":em,"requestor": from,"notes": msg}
+      })
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: graphql,
+        redirect: 'follow'
+      };
+
+      fetch("https://api.baseql.com/airtable/graphql/appneKtre6Ux4ESiq", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+        
+    },
   },
   
   
