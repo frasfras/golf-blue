@@ -15,7 +15,7 @@
             type="text"
             class="form-control"
             placeholder="south course watering"
-            v-model="overview"
+            v-model="description"
           />
         </div>
       </tab-content>
